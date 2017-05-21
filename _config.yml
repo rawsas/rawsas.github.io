@@ -6,7 +6,7 @@ title: Raw SAS # the site title
 
 # staging settings
 url: "https://rawsas.github.io" # the base protocol & hostname for your site
-baseurl: "/rawsas.github.io" # the site root
+baseurl: "" # the site root
 
 gems: [jekyll-paginate]
 paginate: 5
