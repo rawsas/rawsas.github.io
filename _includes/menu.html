@@ -28,7 +28,7 @@
 	<div class="card-block">
 		<h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: "%b %-d, %Y" }}</h6>
 
-		<h2 class="card-title"> <a href="{{ post.url }}" class="card-link">{{ post.title }}</a></h2>
+		<h2 class="card-title"> <a href="{{ site.baseurl }}{{ post.url }}" class="card-link">{{ post.title }}</a></h2>
 	</div>
 </div>
 
