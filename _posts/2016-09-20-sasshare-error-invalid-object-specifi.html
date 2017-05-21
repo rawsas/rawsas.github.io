@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'SAS/Share ERROR: Invalid object specifi...'
+date: '2016-09-20T08:12:00.000-07:00'
+author: Allan Bowe
+tags:
+- Invalid object specifi...
+- 'ERROR: Invalid object specifi...'
+modified_time: '2016-09-22T02:21:42.521-07:00'
+thumbnail: https://2.bp.blogspot.com/-H6247f7sImo/V-FQ6X9bvCI/AAAAAAAAAr8/ibsaOLAZzW4LNoOIx0ZMa_kBocBRpHzIQCLcB/s72-c/Capture.PNG
+blogger_id: tag:blogger.com,1999:blog-3488921339026456633.post-7771774644692199176
+blogger_orig_url: http://www.rawsas.com/2016/09/sasshare-error-invalid-object-specifi.html
+---
+
+Had an interesting error message today (SAS 9.3, Windows 2012R2), which appeared to be truncated:<br /><br /><div class="MsoNormal"><span style="color: red;">ERROR: Attempt to connect to server "dev01.domain.com".__8551 rejected by server.<o:p></o:p></span></div><div class="MsoNormal"><span style="color: red;">ERROR: Invalid object specifi...</span></div><div class="MsoNormal"><span style="color: red;">ERROR: Error in the LIBNAME statement.<o:p></o:p></span></div><br />The issue occurred when trying to connect to a SAS/Share library using the following syntax:<br /><br /><div class="MsoNormal"><span style="background: white; color: blue; font-family: &quot;courier new&quot;;">LIBNAME</span><span style="background: white; font-family: &quot;courier new&quot;;"> MYLIBREF REMOTE&nbsp; </span><span style="background: white; color: blue; font-family: &quot;courier new&quot;;">HOSTNAME</span><span style="background: white; font-family: &quot;courier new&quot;;">=</span><span style="background: white; color: purple; font-family: &quot;courier new&quot;;">"dev01.domain.com"</span><span style="background: white; font-family: &quot;courier new&quot;;">&nbsp; </span><span style="background: white; color: blue; font-family: &quot;courier new&quot;;">Server</span><span style="background: white; font-family: &quot;courier new&quot;;">=__8551 </span><span style="background: white; color: blue; font-family: &quot;courier new&quot;;">slibref</span><span style="background: white; font-family: &quot;courier new&quot;;">=MYLIBREF;</span><o:p></o:p></div><br />The fix was simple - simply log into the application server, open Services, and restart the "SAS Share Server" service.<br /><div class="separator" style="clear: both; text-align: center;"><a href="https://2.bp.blogspot.com/-H6247f7sImo/V-FQ6X9bvCI/AAAAAAAAAr8/ibsaOLAZzW4LNoOIx0ZMa_kBocBRpHzIQCLcB/s1600/Capture.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="147" src="https://2.bp.blogspot.com/-H6247f7sImo/V-FQ6X9bvCI/AAAAAAAAAr8/ibsaOLAZzW4LNoOIx0ZMa_kBocBRpHzIQCLcB/s400/Capture.PNG" width="400" /></a></div>This left the customer happy, but I'm still curious about what caused the elipsis (...)<br /><br />Any ideas<span style="background-color: white; color: #444444; font-family: &quot;arial&quot; , &quot;tahoma&quot; , &quot;helvetica&quot; , &quot;freesans&quot; , sans-serif; font-size: 13px; line-height: 18.2px;">‽</span>

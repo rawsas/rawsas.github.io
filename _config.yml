@@ -1,0 +1,11 @@
+title: Raw SAS # the site title
+
+# production settings
+#url: "https://rawsas.com" # the base protocol & hostname for your site
+#baseurl: "/" # the site root
+
+# staging settings
+url: "https://infoweb.github.io" # the base protocol & hostname for your site
+baseurl: "/rawsas.github.io" # the site root
+
+exclude: ['CNAME', '*.sublime-*'] # files to ignore when generating the _site folder

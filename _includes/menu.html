@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card-block">
+		<h2 class="card-title">Give a bit back</h2>
+
+		<div>
+			Like this site?  Contributions welcome, and will be spent down the pub.
+			<a href="https://www.coinbase.com/checkouts/79662c7402169c3e50d60e39f7c7af06" target="_blank">Donate Bitcoins</a>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="card">
+	<div class="card-block">
+		<h2 class="card-title">Buy/Sell Bitcoins - Locally</h2>
+
+		<div>
+			<iframe allowtransparency="true" frameborder="0" hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no" width="234" height="60" src="https://localbitcoins.com/affiliate-embed/half-banner?ref=1bg"></iframe>
+		</div>
+	</div>
+</div>
+
+<br>
+
+{% for post in site.posts %}
+<div class="card">
+	<div class="card-block">
+		<h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: "%b %-d, %Y" }}</h6>
+
+		<h2 class="card-title"> <a href="{{ post.url }}" class="card-link">{{ post.title }}</a></h2>
+	</div>
+</div>
+
+<br>
+{% endfor %}

@@ -1,0 +1,14 @@
+<div class="card">
+	<div class="card-block">
+		<h4 class="card-title"><a class="post-link" href="{{ page.url }}">{{ page.title }}</a></h4>
+
+		<h6 class="card-subtitle mb-2 text-muted">{{ page.date | date: " %-d %b %Y" }}</h6>
+		<p class="card-text">{{ content }}</p>
+
+		<p>Posted by <a href="https://plus.google.com/113244856554104779724">Allan Bowe</a> at <a href="{{ page.url }}">{{ page.date | date: "%R" }}</a></p>
+
+		{% include social.html %}
+
+		<a href="#" class="card-link">{{ page.tags }}</a>
+	</div>
+</div>

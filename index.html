@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+{% for post in site.posts limit:3 %}
+<div class="card">
+	<div class="card-block">
+		<h4 class="card-title"><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></h4>
+
+		<h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: " %-d %b %Y" }}</h6>
+		<p class="card-text">{{ post.content }}</p>
+	</div>
+</div>
+<br>
+{% endfor %}

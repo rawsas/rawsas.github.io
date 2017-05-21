@@ -1,0 +1,12 @@
+---
+layout: post
+title: DIRECT_EXE warning
+date: '2015-10-13T06:22:00.003-07:00'
+author: Allan Bowe
+tags: 
+modified_time: '2015-10-13T06:22:31.942-07:00'
+blogger_id: tag:blogger.com,1999:blog-3488921339026456633.post-1131599358720545924
+blogger_orig_url: http://www.rawsas.com/2015/10/directexe-warning.html
+---
+
+This one had me puzzled for a bit (SAS 9.2, Windows 2008,&nbsp;SQLNCLI10.1, OLEDB):<br /><br /><div class="MsoNormal" style="margin-bottom: 0.0001pt;"><span style="background: white; color: teal; font-family: &quot;Courier New&quot;;">WARNING: The current setting of the DIRECT_EXE libname option will not allow this SQL statement to be passed directly to the DBMS for processing.</span><o:p></o:p></div><br />Explicitly setting the DIRECT_EXE option to DELETE had no effect. &nbsp;Assigning the library in a new session, and performing the update also worked fine. &nbsp;Thankfully the SYSCC variable was not affected, so jobs / processes continued to run, but still...<br /><br />Anyways, it turned out this was actually caused by the SASTRACE option! &nbsp;Turning this OFF removed the warning.
