@@ -18,7 +18,7 @@ layout: default
 	<div class="row">
 		<div class="col">
 			{% if paginator.previous_page %}
-				<a href="{{ paginator.previous_page_path }}" class="previous"><button type="button" class="btn btn-secondary btn-sm">Previous</button></a>
+				<a href="{{ paginator.previous_page_path }}" class="previous"><button type="button" class="btn btn-secondary btn-sm">Newer Posts</button></a>
 			{% endif %}
 		</div>
 
@@ -28,7 +28,7 @@ layout: default
 
 		<div class="col text-right">
 			{% if paginator.next_page %}
-				<a href="{{ paginator.next_page_path }}" class="next"><button type="button" class="btn btn-secondary btn-sm">Next</button></a>
+				<a href="{{ paginator.next_page_path }}" class="next"><button type="button" class="btn btn-secondary btn-sm">Older Posts</button></a>
 			{% endif %}
 		</div>
 	</div>
