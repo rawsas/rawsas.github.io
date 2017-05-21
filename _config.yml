@@ -8,4 +8,7 @@ title: Raw SAS # the site title
 url: "https://infoweb.github.io" # the base protocol & hostname for your site
 baseurl: "/rawsas.github.io" # the site root
 
+gems: [jekyll-paginate]
+paginate: 5
+
 exclude: ['CNAME', '*.sublime-*'] # files to ignore when generating the _site folder

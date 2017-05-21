@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% for post in site.posts limit:3 %}
+{% for post in paginator.posts %}
 <div class="card">
 	<div class="card-block">
 		<h4 class="card-title"><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></h4>
@@ -13,3 +13,23 @@ layout: default
 </div>
 <br>
 {% endfor %}
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			{% if paginator.previous_page %}
+				<a href="{{ paginator.previous_page_path }}" class="previous"><button type="button" class="btn btn-secondary btn-sm">Previous</button></a>
+			{% endif %}
+		</div>
+
+		<div class="col text-center">
+			<span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+		</div>
+
+		<div class="col text-right">
+			{% if paginator.next_page %}
+				<a href="{{ paginator.next_page_path }}" class="next"><button type="button" class="btn btn-secondary btn-sm">Next</button></a>
+			{% endif %}
+		</div>
+	</div>
+</div>
