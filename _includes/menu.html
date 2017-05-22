@@ -23,14 +23,40 @@
 
 <br>
 
-{% for post in site.posts %}
-<div class="card">
-	<div class="card-block">
-		<h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: "%b %-d, %Y" }}</h6>
+{% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
 
-		<h2 class="card-title"> <a href="{{ site.baseurl }}{{ post.url }}" class="card-link">{{ post.title }}</a></h2>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+{% for year in postsByYear %}
+	{% if forloop:first %}
+		{% assign expand = true %}
+		{% assign collapse = "collapse show" %}
+	{% else %}
+		{% assign expand = false %}
+		{% assign collapse = "collapse" %}
+	{% endif %}
+
+	<div class="card">
+		<div class="card-header" role="tab" id="heading-{{ year.name }}">
+			<h5 class="mb-0">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ year.name }}" aria-expanded="{{ expand }}" aria-controls="collapse-{{ year.name }}">
+					<h3>{{ year.name }}</h3>
+				</a>
+			</h5>
+		</div>
+
+		<div id="collapse-{{ year.name }}" class="{{ collapse }}" role="tabpanel" aria-labelledby="heading-{{ year.name }}">
+			<div class="card-block">
+				<div class="list-group">
+					{% for post in year.items %}
+						<a href="{{ post.url }}" class="list-group-item list-group-item-action flex-column align-items-start ">
+							<small class="text-muted">{{ post.date | date: " %-d %b %Y" }}</small>
+
+							<p class="mb-1">{{ post.title }}</p>
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-
-<br>
 {% endfor %}
+</div>
